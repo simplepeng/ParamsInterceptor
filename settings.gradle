@@ -1,0 +1,3 @@
+rootProject.name='ParamsInterceptor'
+include ':app'
+include ':interceptor_okhttp'
