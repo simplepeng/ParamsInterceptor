@@ -1,0 +1,37 @@
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+
+def m_groupId = "me.simple"
+def m_artifactId = "params-interceptor"
+def m_publishVersion = "1.0.0"
+
+/**
+ * 本地发布
+ */
+uploadArchives {
+    repositories.mavenDeployer {
+        // 本地仓库路径
+        repository(url: 'file:///Users/chenpeng/Desktop/Repositories/')
+//        repository(url: 'file:///Users/simple/Desktop/Repositories/')
+        // 唯一标识
+        pom.groupId = m_groupId
+        // 项目名称
+        pom.artifactId = m_artifactId
+        // 版本号
+        pom.version = m_publishVersion
+        //
+        pom.packaging = "aar"
+    }
+}
+
+/**
+ * bintray 发布
+ */
+publish {
+    userOrg = 'simplepeng'
+    groupId = m_groupId
+    artifactId = m_artifactId
+    publishVersion = m_publishVersion
+    desc = '一个可以添加额外参数的Interceptor'
+    website = 'https://github.com/simplepeng/ParamsInterceptor'
+}

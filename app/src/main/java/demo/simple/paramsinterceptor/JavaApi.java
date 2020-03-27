@@ -7,8 +7,6 @@ import com.readystatesoftware.chuck.ChuckInterceptor;
 import java.util.List;
 import java.util.Map;
 
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 import me.simple.interceptor.ParamsInterceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

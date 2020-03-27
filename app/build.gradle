@@ -46,5 +46,5 @@ dependencies {
 
     debugApi 'com.readystatesoftware.chuck:library:1.1.0'
     releaseApi 'com.readystatesoftware.chuck:library-no-op:1.1.0'
-    implementation project(path: ':interceptor_okhttp')
+    implementation project(path: ':params_interceptor')
 }

@@ -11,7 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/interceptor_okhttp" />
+            <option value="$PROJECT_DIR$/params_interceptor" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
