@@ -9,13 +9,13 @@ import java.util.*
 
 class ParamsInterceptor
 @JvmOverloads constructor(
-    //
+    //公共参数们
     private val params: MutableMap<String, String>,
-    //
+    //过滤掉不添加公共参数的url
     private val excludeUrls: List<String> = listOf(),
-    //
+    //公共参数是添加到url上还是请求体中
     private val inPath: Boolean = false,
-    //
+    //请求执行前的回调
     private val onPreRequest: (params: MutableMap<String, String>) -> Unit = {}
 ) : Interceptor {
 
