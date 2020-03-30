@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getKtApi(): Api {
         val httpClient = OkHttpClient.Builder()
-            .addInterceptor(ParamsInterceptor(params, inPath = true, onPreRequest = { params ->
+            .addInterceptor(ParamsInterceptor(params, inPath = false, onPreRequest = { params ->
                 params["params3"] = "hei hei hei"
                 params["params4"] = "tu tu tu"
             }))
