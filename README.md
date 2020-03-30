@@ -1,10 +1,12 @@
 # ParamsInterceptor
+![MIT](https://img.shields.io/badge/License-MIT-orange?style=flat-square)  ![Jcenter](https://img.shields.io/badge/Jcenter-1.0.0-brightgreen?style=flat-square)  ![Androidx](https://img.shields.io/badge/Androidx-Yes-blue?style=flat-square)  ![Api](https://img.shields.io/badge/Api-14+-blueviolet?style=flat-square)  ![Kotlin](https://img.shields.io/badge/Kotlin-Yes-ff6984?style=flat-square) ![OkHttp](https://img.shields.io/badge/OkHttp-4.2.0-yellow?style=flat-square)
+
 给OkHttp添加公共请求参数的Interceptor
 
 ## 依赖
 
 ```groovy
-
+implementation 'me.simple:params-interceptor:1.0.0'
 ```
 
 ## 使用
