@@ -12,17 +12,17 @@ implementation 'me.simple:params-interceptor:1.0.0'
 ## 使用
 
 ```kotlin
-    private val params = mutableMapOf<String, String>(
-        "params1" to "simple",
-        "params2" to "peng",
-        "params3" to "hahaha"
-    )
+private val params = mutableMapOf<String, String>(
+    "params1" to "simple",
+    "params2" to "peng",
+    "params3" to "hahaha"
+)
 
-        val httpClient = OkHttpClient.Builder()
-            .addInterceptor(ParamsInterceptor(params, inPath = true, onPreRequest = { params ->
-                params["params3"] = "hei hei hei"
-                params["params4"] = "tu tu tu"
-            }))
+val httpClient = OkHttpClient.Builder()
+    .addInterceptor(ParamsInterceptor(params, inPath = true, onPreRequest = { params ->
+        params["params3"] = "hei hei hei"
+        params["params4"] = "tu tu tu"
+    }))
 ```
 
 ### 构造参数详解
