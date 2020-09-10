@@ -3,7 +3,7 @@ apply plugin: 'com.novoda.bintray-release'
 
 def m_groupId = "me.simple"
 def m_artifactId = "params-interceptor"
-def m_publishVersion = "1.0.0"
+def m_publishVersion = "1.0.1"
 
 /**
  * 本地发布
