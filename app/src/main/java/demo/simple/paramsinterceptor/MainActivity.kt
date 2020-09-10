@@ -10,14 +10,21 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.ConcurrentHashMap
 
 class MainActivity : AppCompatActivity() {
 
-    private val params = mutableMapOf<String, String>(
-        "params1" to "simple",
-        "params2" to "peng",
+//    private val params = ConcurrentHashMap<String, String>(
+//        "params1" to "simple",
+//        "params2" to "peng",
+//        "params3" to "hahaha"
+//    )
+
+    private val params = ConcurrentHashMap<String, String>().apply {
+        "params1" to "simple"
+        "params2" to "peng"
         "params3" to "hahaha"
-    )
+    }
 
     private val baseUrl = "http://127.0.0.1/"
 

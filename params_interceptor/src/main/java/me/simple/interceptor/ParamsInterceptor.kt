@@ -6,11 +6,13 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import okio.Buffer
 import org.json.JSONObject
 import java.util.*
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.ConcurrentMap
 
 class ParamsInterceptor
 @JvmOverloads constructor(
     //公共参数们
-    private val params: MutableMap<String, String>,
+    private val params: ConcurrentHashMap<String, String>,
     //过滤掉不添加公共参数的url
     private val excludeUrls: List<String> = listOf(),
     //公共参数是添加到url上还是请求体中
@@ -23,18 +25,24 @@ class ParamsInterceptor
         val request = chain.request()
         val url = request.url.toString()
 
+        //请求的ur如果l在过滤Url组里面的直接就执行请求，不添加公共参数
         for (excludeUrl in excludeUrls) {
             if (excludeUrl.isNotEmpty() && url.contains(excludeUrl)) {
                 return chain.proceed(request)
             }
         }
 
+        //执行添加公共参数之前的回调
         onPreRequest.invoke(params)
 
         val newRequest = parseRequest(request)
+
         return chain.proceed(newRequest)
     }
 
+    /**
+     * 解析请求
+     */
     private fun parseRequest(request: Request): Request {
         return when (request.method.toLowerCase(Locale.getDefault())) {
             "get" -> {
@@ -65,6 +73,9 @@ class ParamsInterceptor
         }
     }
 
+    /**
+     * 添加GET方式的参数
+     */
     private fun addGetParams(request: Request): Request {
         val url = urlAppendParams(request)
         return request.newBuilder()
@@ -72,6 +83,20 @@ class ParamsInterceptor
             .build()
     }
 
+    /**
+     *公共参数添加在Url上
+     */
+    private fun urlAppendParams(request: Request): HttpUrl {
+        val builder = request.url.newBuilder()
+        for ((key, value) in params.entries) {
+            builder.addQueryParameter(key, value)
+        }
+        return builder.build()
+    }
+
+    /**
+     * 添加POST方式的参数
+     */
     private fun addPostParams(request: Request): Request {
         return if (inPath) {
             addPostParamsInPath(request)
@@ -80,6 +105,9 @@ class ParamsInterceptor
         }
     }
 
+    /**
+     * POST方式-公共参数添加在Url上
+     */
     private fun addPostParamsInPath(request: Request): Request {
         val body = request.body ?: return request
         val url = urlAppendParams(request)
@@ -89,14 +117,9 @@ class ParamsInterceptor
             .build()
     }
 
-    private fun urlAppendParams(request: Request): HttpUrl {
-        val builder = request.url.newBuilder()
-        for ((key, value) in params.entries) {
-            builder.addQueryParameter(key, value)
-        }
-        return builder.build()
-    }
-
+    /**
+     * POST方式-公共参数添加在Body里面
+     */
     private fun addPostParamsInBody(request: Request): Request {
         val body = request.body ?: return request
         return when (body) {

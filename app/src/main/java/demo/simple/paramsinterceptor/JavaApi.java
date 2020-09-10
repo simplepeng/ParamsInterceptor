@@ -6,6 +6,7 @@ import com.readystatesoftware.chuck.ChuckInterceptor;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import me.simple.interceptor.ParamsInterceptor;
 import okhttp3.OkHttpClient;
@@ -16,7 +17,7 @@ public class JavaApi {
     public static Api getApi(
             String baseUrl,
             Context context,
-            Map<String, String> params,
+            ConcurrentHashMap<String, String> params,
             List<String> excludeUrls) {
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new ParamsInterceptor(params, excludeUrls, false, map -> {
