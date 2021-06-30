@@ -6,7 +6,16 @@
 ## 依赖
 
 ```groovy
-implementation 'me.simple:params-interceptor:1.0.1'
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+
+```groovy
+ implementation 'com.github.simplepeng:ParamsInterceptor:v1.0.2'
 ```
 
 ## 使用
