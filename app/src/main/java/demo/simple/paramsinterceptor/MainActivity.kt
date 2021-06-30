@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import me.simple.interceptor.ParamsInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -52,6 +53,32 @@ class MainActivity : AppCompatActivity() {
 
         btn_putBody.setOnClickListener {
             getApi().putBody(mapOf()).enqueue(listener)
+        }
+
+        btn_delete.setOnClickListener {
+            getApi().delete().enqueue(listener)
+        }
+
+        btn_head.setOnClickListener {
+            getApi().head().enqueue(object :Callback<Void>{
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                }
+            })
+        }
+
+        btn_options.setOnClickListener {
+            getApi().options().enqueue(listener)
+        }
+
+        btn_patch.setOnClickListener {
+            getApi().patch("simple").enqueue(listener)
+        }
+
+        btn_patchBody.setOnClickListener {
+            getApi().patchBody(mapOf()).enqueue(listener)
         }
     }
 

@@ -7,44 +7,81 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_get"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="get"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btn_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="post"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_get" />
+        <Button
+            android:id="@+id/btn_get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_postBody"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="postBody"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_post" />
+        <Button
+            android:id="@+id/btn_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="post"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_get" />
 
-    <Button
-        android:id="@+id/btn_put"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="put"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_postBody" />
+        <Button
+            android:id="@+id/btn_postBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="postBody"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_post" />
 
-    <Button
-        android:id="@+id/btn_putBody"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="putBody"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_put" />
+        <Button
+            android:id="@+id/btn_put"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="put"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_postBody" />
 
+        <Button
+            android:id="@+id/btn_putBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="putBody"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_put" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="delete" />
+
+        <Button
+            android:id="@+id/btn_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="head" />
+
+        <Button
+            android:id="@+id/btn_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="options" />
+
+        <Button
+            android:id="@+id/btn_patch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="patch" />
+
+        <Button
+            android:id="@+id/btn_patchBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="patchBody" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
