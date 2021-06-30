@@ -22,6 +22,10 @@ public interface Api {
     @POST("postBody")
     Call<String> postBody(@Body Map<String, String> map);
 
+    @FormUrlEncoded
     @PUT("put")
-    Call<String> put();
+    Call<String> put(@Field("name") String name);
+
+    @PUT("putBody")
+    Call<String> putBody(@Body Map<String, String> map);
 }

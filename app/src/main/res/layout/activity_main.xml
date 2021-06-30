@@ -39,4 +39,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_postBody" />
 
+    <Button
+        android:id="@+id/btn_putBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="putBody"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_put" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

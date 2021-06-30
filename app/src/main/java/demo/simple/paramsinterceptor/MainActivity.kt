@@ -47,7 +47,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_put.setOnClickListener {
-            getApi().put().enqueue(listener)
+            getApi().put("simple").enqueue(listener)
+        }
+
+        btn_putBody.setOnClickListener {
+            getApi().putBody(mapOf()).enqueue(listener)
         }
     }
 

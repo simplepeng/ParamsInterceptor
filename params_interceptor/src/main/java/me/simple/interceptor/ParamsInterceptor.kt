@@ -112,7 +112,7 @@ class ParamsInterceptor
         val body = request.body ?: return request
         val url = urlAppendParams(request)
         return request.newBuilder()
-            .post(body)
+            .method(request.method, body)
             .url(url)
             .build()
     }
@@ -135,7 +135,7 @@ class ParamsInterceptor
                     builder.add(key, value)
                 }
                 request.newBuilder()
-                    .post(builder.build())
+                    .method(request.method, builder.build())
                     .build()
             }
             is MultipartBody -> {
@@ -153,8 +153,10 @@ class ParamsInterceptor
                     jsonObject.put(key, value)
                 }
                 val content: String = jsonObject.toString()
+                val contentBody =
+                    content.toRequestBody("application/json; charset=UTF-8".toMediaType())
                 request.newBuilder()
-                    .post(content.toRequestBody("application/json; charset=UTF-8".toMediaType()))
+                    .method(request.method, contentBody)
                     .build()
             }
         }
