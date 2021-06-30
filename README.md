@@ -1,5 +1,5 @@
 # ParamsInterceptor
-![MIT](https://img.shields.io/badge/License-MIT-orange?style=flat-square)  ![Jcenter](https://img.shields.io/badge/Jcenter-1.0.1-brightgreen?style=flat-square)  ![Androidx](https://img.shields.io/badge/Androidx-Yes-blue?style=flat-square)  ![Api](https://img.shields.io/badge/Api-14+-blueviolet?style=flat-square)  ![Kotlin](https://img.shields.io/badge/Kotlin-Yes-ff6984?style=flat-square) ![OkHttp](https://img.shields.io/badge/OkHttp-4.2.0-yellow?style=flat-square)
+![MIT](https://img.shields.io/badge/License-MIT-orange?style=flat-square)  [![](https://jitpack.io/v/simplepeng/ParamsInterceptor.svg)](https://jitpack.io/#simplepeng/ParamsInterceptor)  ![Androidx](https://img.shields.io/badge/Androidx-Yes-blue?style=flat-square)  ![Api](https://img.shields.io/badge/Api-14+-blueviolet?style=flat-square)  ![Kotlin](https://img.shields.io/badge/Kotlin-Yes-ff6984?style=flat-square) ![OkHttp](https://img.shields.io/badge/OkHttp-4.2.0-yellow?style=flat-square)
 
 给OkHttp添加公共请求参数的Interceptor
 
@@ -15,23 +15,23 @@ allprojects {
 ```
 
 ```groovy
- implementation 'com.github.simplepeng:ParamsInterceptor:v1.0.2'
+implementation 'com.github.simplepeng:ParamsInterceptor:v1.0.2'
 ```
 
 ## 使用
 
 ```kotlin
-    private val params = ConcurrentHashMap<String, String>().apply {
-        "params1" to "simple"
-        "params2" to "peng"
-        "params3" to "hahaha"
-    }
+private val params = ConcurrentHashMap<String, String>().apply {
+    "params1" to "simple"
+    "params2" to "peng"
+    "params3" to "hahaha"
+}
 
-		val httpClient = OkHttpClient.Builder()
-    .addInterceptor(ParamsInterceptor(params, inPath = true, onPreRequest = { params ->
-        params["params3"] = "hei hei hei"
-        params["params4"] = "tu tu tu"
-    }))
+val httpClient = OkHttpClient.Builder()
+.addInterceptor(ParamsInterceptor(params, inPath = true, onPreRequest = { params ->
+    params["params3"] = "hei hei hei"
+    params["params4"] = "tu tu tu"
+}))
 ```
 
 ### 构造参数详解
@@ -55,6 +55,8 @@ class ParamsInterceptor
 <img src="https://raw.githubusercontent.com/simplepeng/ImageRepo/master/q_group.jpg" width="270px" height="370px">
 
 ## 版本迭代
+
+* v1.0.2：增加其他请求方式的适配
 
 * v1.0.1：解决线程并发执行发生`ConcurrentModificationException`的bug
 
